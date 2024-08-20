@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">Sentiment Analysis of App Reviews for Requirements Engineering Dashboard</div>
+    </header>
+
+    <!-- Metrics Summary Section -->
+    <section class="metrics-summary">
+        <div class="metric-card">
+            <div class="metric-icon">🔗</div>
+            <div class="metric-info">
+                <h3>Data Sources</h3>
+                <p>2</p>
+            </div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-icon">🤖</div>
+            <div class="metric-info">
+                <h3>No. of Models</h3>
+                <p>6</p>
+            </div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-icon">🌐</div>
+            <div class="metric-info">
+                <h3>No. of Apps</h3>
+                <p>10</p>
+            </div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-icon">🎯</div> 
+            <div class="metric-info">
+                <h3>Model Accuracy</h3>
+                <p>91%</p>
+            </div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-icon">🏆</div>
+            <div class="metric-info">
+                <h3>Top Model</h3>
+                <p>DeBERTa + RF</p> 
+            </div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-icon">📊</div>
+            <div class="metric-info">
+                <h3>Total Reviews</h3>
+                <p>50,000</p>
+            </div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-icon">📝</div>  
+            <div class="metric-info">
+                <h3>Train Reviews</h3>
+                <p>31104</p>
+            </div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-icon">🧪</div> 
+            <div class="metric-info">
+                <h3>Test Reviews</h3>
+                <p>9720</p>
+            </div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-icon">🏷️</div> 
+            <div class="metric-info">
+                <h3>Labelled Reviews</h3>
+                <p>9102</p>
+            </div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-icon">🔍</div>
+            <div class="metric-info">
+                <h3>Validation Reviews</h3>
+                <p>7776</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Models Section -->
+    <section class="models-section">
+        <h2>Model Performance</h2>
+        <div class="tabs">
+            <button class="tablink" onclick="openTab(event, 'Baseline')">Baseline (RoBERTa)</button>
+            <button class="tablink" onclick="openTab(event, 'Manual')">Baseline (Manual)</button>
+            <button class="tablink" onclick="openTab(event, 'Hybrid')">Hybrid</button>
+        </div>
+
+        <!-- Baseline Section -->
+        <div id="Baseline" class="tabcontent">
+            <h3>RoBERTa</h3>
+            <div class="grid-container">
+                <div class="grid-item"><img src="/images/plot_predicted_labels_distribution_BERT_RoBERTa.png" alt="BERT RoBERTa"></div>
+                <div class="grid-item"><img src="/images/plot_predicted_labels_distribution_Linear_SVM_RoBERTa.png" alt="Linear SVM RoBERTa"></div>
+                <div class="grid-item"><img src="/images/plot_predicted_labels_distribution_Logistic_Regression_RoBERTa.png" alt="Logistic Regression RoBERTa"></div>
+                <div class="grid-item"><img src="/images/plot_predicted_labels_distribution_Naive_Bayes_RoBERTa.png" alt="Naive Bayes RoBERTa"></div>
+                <div class="grid-item"><img src="/images/plot_predicted_labels_distribution_Perceptron_RoBERTa.png" alt="Perceptron RoBERTa"></div>
+            </div>
+        </div>
+
+        <!-- Manual Section -->
+        <div id="Manual" class="tabcontent">
+            <h3>Manual</h3>
+            <div class="grid-container">
+                <div class="grid-item"><img src="/images/plot_predicted_labels_distribution_BERT_Manual.png" alt="BERT Manual"></div>
+                <div class="grid-item"><img src="/images/plot_predicted_labels_distribution_Linear_SVM_Manual.png" alt="Linear SVM Manual"></div>
+                <div class="grid-item"><img src="/images/plot_predicted_labels_distribution_Logistic_Regression_Manual.png" alt="Logistic Regression Manual"></div>
+                <div class="grid-item"><img src="/images/plot_predicted_labels_distribution_Naive_Bayes_Manual.png" alt="Naive Bayes Manual"></div>
+                <div class="grid-item"><img src="/images/plot_predicted_labels_distribution_Perceptron_Manual.png" alt="Perceptron Manual"></div>
+            </div>
+        </div>
+
+        <!-- Hybrid Section -->
+        <div id="Hybrid" class="tabcontent">
+            <h3>Hybrid</h3>
+            <div class="grid-container">
+                <div class="grid-item"><img src="/images/Distribution_of_Mapped_Predictions_RoBERTa.png" alt="Distribution RoBERTa"></div>
+                <div class="grid-item"><img src="/images/Distribution_of_Mapped_Predictions_Manual.png" alt="Distribution Manual"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EDA Section -->
+    <section class="eda-section">
+        <h2>Exploratory Data Analysis</h2>
+            <!-- Section for Buttons -->
+            <div class="tabs">
+                <button class="tablink" onclick="showSection('roberta')">RoBERTa</button>
+                <button class="tablink" onclick="showSection('manual')">Manual</button>
+            </div>
+
+            <!-- RoBERTa Section -->
+            <div id="roberta" class="tabcontent">
+                <h3>RoBERTa</h3>
+                <div class="grid-container">
+                    <div class="grid-item small"><img src="/images/plot_distribution_of_reviews_over_time.png" alt="Distribution Over Time"></div>
+                    <div class="grid-item small"><img src="/images/plot_wordcloud_0.png" alt="Wordcloud 0"></div>
+                    <div class="grid-item small"><img src="/images/plot_wordcloud_1.png" alt="Wordcloud 1"></div>
+                    <div class="grid-item small"><img src="/images/plot_wordcloud_2.png" alt="Wordcloud 2"></div>
+                    <div class="grid-item small"><img src="/images/Top_Features_of_Highly_Rated_Apps.png" alt="Top Features Highly Rated"></div>
+                    <div class="grid-item small"><img src="/images/Top_Features_of_Low-Rated_Apps.png" alt="Top Features Low Rated"></div>
+                    <div class="grid-item small"><img src="/images/plot_label_distribution.png" alt="Label Distribution"></div>
+                    <div class="grid-item small"><img src="/images/plot_score_distribution.png" alt="Score Distribution"></div>
+                    <div class="grid-item small"><img src="/images/plot_sentiment_distribution_over_time.png" alt="Sentiment Distribution Over Time"></div>
+                    <div class="grid-item large"><img src="/images/plot_average_scores.png" alt="Average Scores"></div>
+                    <div class="grid-item large"><img src="/images/Top_10_Negative_3-grams.png" alt="Top 10 Negative 3-grams"></div>
+                    <div class="grid-item large"><img src="/images/Top_10_Neutral_3-grams.png" alt="Top 10 Neutral 3-grams"></div>
+                    <div class="grid-item large"><img src="/images/Top_10_Positive_3-grams.png" alt="Top 10 Positive 3-grams"></div>
+                    <div class="grid-item large"><img src="/images/plot_sentiment_by_source_heatmap.png" alt="Sentiment by Source Heatmap"></div>
+                </div>
+            </div>
+
+            <!-- Manual Section -->
+            <div id="manual" class="tabcontent">
+                <h3>Manual</h3>
+                <div class="grid-container">
+                    <div class="grid-item"><img src="/images/plot_top_trigrams_negative.png" alt="Top Trigrams Negative"></div>
+                    <div class="grid-item"><img src="/images/plot_top_trigrams_neutral.png" alt="Top Trigrams Neutral"></div>
+                    <div class="grid-item"><img src="/images/plot_top_trigrams_positive.png" alt="Top Trigrams Positive"></div>
+                    <div class="grid-item small"><img src="/images/Pie_Chart_for_Review_Labels_with_Count_and_Percentage.png" alt="Pie Chart for Review Labels"></div>
+                </div>
+            </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Sentiment Analysis Dashboard. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Tabs -->
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        // Set default tab to open
+        document.getElementById("Baseline").style.display = "block";
+
+        function showSection(sectionId) {
+            var robertaSection = document.getElementById('roberta');
+            var manualSection = document.getElementById('manual');
+            
+            // Hide both sections initially
+            robertaSection.style.display = 'none';
+            manualSection.style.display = 'none';
+            
+            // Show the selected section
+            if (sectionId === 'roberta') {
+                robertaSection.style.display = 'block';
+            } else if (sectionId === 'manual') {
+                manualSection.style.display = 'block';
+            }
+        }
+        // Set default tab to open
+        document.getElementById("roberta").style.display = "block";
+        
+    </script>
+</body>
+</html>
