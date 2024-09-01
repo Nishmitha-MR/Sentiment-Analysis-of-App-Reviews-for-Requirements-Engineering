@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis of App Reviews</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .tabcontent {
+            display: none;
+            padding: 20px;
+            background-color: #1E1E1E;  /* Dark background */
+            color: #E0E0E0;  /* Light text color */
+            border-radius: 10px;
+        }
+
+        /* Grid container for the images */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);  /* 3 columns */
+            gap: 20px;  /* Space between the images */
+        }
+
+        /* Styling for images in the grid */
+        .grid-container img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);  /* Slight shadow */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; 
+        }
+
+        .grid-container img:hover {
+            transform: translateY(-5px); 
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);  /* Darker shadow on hover */
+        }
+
+        .tablinks {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 5px;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .tablinks:hover {
+            background-color: #555;
+        }
+
+        .tablinks.active {
+            background-color: #1E88E5;
+        }
+
+        .tab {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">Sentiment Analysis of App Reviews</div>
+    </header>
+    
+    <section class="navigation">
+        <a href="index.html" class="tablink">Back to Dashboard</a>
+    </section>
+
+    <!-- Tabs Section -->
+    <section class="tab">
+        <button class="tablinks" onclick="openApp(event, 'All')">All</button>
+        <button class="tablinks" onclick="openApp(event, 'Instagram')">Instagram</button>
+        <button class="tablinks" onclick="openApp(event, 'SleepCycle')">Sleep Cycle</button>
+        <button class="tablinks" onclick="openApp(event, 'BusTimes')">Bus Times</button>
+        <button class="tablinks" onclick="openApp(event, 'Deliveroo')">Deliveroo</button>
+        <button class="tablinks" onclick="openApp(event, 'Monzo')">Monzo</button>
+        <button class="tablinks" onclick="openApp(event, 'WhatsApp')">WhatsApp</button>
+        <button class="tablinks" onclick="openApp(event, 'Citymapper')">Citymapper</button>
+        <button class="tablinks" onclick="openApp(event, 'Headspace')">Headspace</button>
+        <button class="tablinks" onclick="openApp(event, 'BBC')">BBC</button>
+        <button class="tablinks" onclick="openApp(event, 'Revolut')">Revolut</button>
+    </section>
+
+    <!-- Content for All Apps -->
+    <section id="All" class="tabcontent">
+        <div class="grid-container">
+            <!-- Insert all images here -->
+            <img src="/images/plot_Sentiment_Features_Instagram - Neutral Features.png" alt="Neutral Features in Instagram">
+            <img src="/images/plot_Sentiment_Features_Instagram - Negative Features.png" alt="Negative Features in Instagram">
+            <img src="/images/plot_Sentiment_Features_Instagram - Positive Features.png" alt="Positive Features in Instagram">
+            <img src="/images/plot_Sentiment_Features_Sleep Cycle_ Sleep Tracker - Neutral Features.png" alt="Neutral Features in Sleep Cycle">
+            <img src="/images/plot_Sentiment_Features_Bus Times -Live Public Transit - Neutral Features.png" alt="Neutral Features in Bus Times">
+            <img src="/images/plot_Sentiment_Features_Sleep Cycle_ Sleep Tracker - Negative Features.png" alt="Negative Features in Sleep Cycle">
+            <img src="/images/plot_Sentiment_Features_Sleep Cycle_ Sleep Tracker - Positive Features.png" alt="Positive Features in Sleep Cycle">
+            <img src="/images/plot_Sentiment_Features_Bus Times -Live Public Transit - Negative Features.png" alt="Negative Features in Bus Times">
+            <img src="/images/plot_Sentiment_Features_Bus Times -Live Public Transit - Positive Features.png" alt="Positive Features in Bus Times">
+            <img src="/images/plot_Sentiment_Features_Deliveroo_ Food & Shopping - Negative Features.png" alt="Negative Features in Deliveroo">
+            <img src="/images/plot_Sentiment_Features_Deliveroo_ Food & Shopping - Neutral Features.png" alt="Neutral Features in Deliveroo">
+            <img src="/images/plot_Sentiment_Features_Deliveroo_ Food & Shopping - Positive Features.png" alt="Positive Features in Deliveroo">
+            <img src="/images/plot_Sentiment_Features_Monzo - Mobile Banking - Neutral Features.png" alt="Neutral Features in Monzo">
+            <img src="/images/plot_Sentiment_Features_Monzo - Mobile Banking - Negative Features.png" alt="Negative Features in Monzo">
+            <img src="/images/plot_Sentiment_Features_Monzo - Mobile Banking - Positive Features.png" alt="Positive Features in Monzo">
+            <img src="/images/plot_Sentiment_Features_WhatsApp Messenger - Negative Features.png" alt="Negative Features in WhatsApp Messenger">
+            <img src="/images/plot_Sentiment_Features_WhatsApp Messenger - Neutral Features.png" alt="Neutral Features in WhatsApp Messenger">
+            <img src="/images/plot_Sentiment_Features_Citymapper - Neutral Features.png" alt="Neutral Features in Citymapper">
+            <img src="/images/plot_Sentiment_Features_WhatsApp Messenger - Positive Features.png" alt="Positive Features in WhatsApp Messenger">
+            <img src="/images/plot_Sentiment_Features_Citymapper - Negative Features.png" alt="Negative Features in Citymapper">
+            <img src="/images/plot_Sentiment_Features_Citymapper - Positive Features.png" alt="Positive Features in Citymapper">
+            <img src="/images/plot_Sentiment_Features_Headspace_ Meditation & Sleep - Negative Features.png" alt="Negative Features in Headspace">
+            <img src="/images/plot_Sentiment_Features_Headspace_ Meditation & Sleep - Neutral Features.png" alt="Neutral Features in Headspace">
+            <img src="/images/plot_Sentiment_Features_Headspace_ Meditation & Sleep - Positive Features.png" alt="Positive Features in Headspace">
+            <img src="/images/plot_Sentiment_Features_BBC_ World News & Stories - Negative Features.png" alt="Negative Features in BBC">
+            <img src="/images/plot_Sentiment_Features_BBC_ World News & Stories - Neutral Features.png" alt="Neutral Features in BBC">
+            <img src="/images/plot_Sentiment_Features_BBC_ World News & Stories - Positive Features.png" alt="Positive Features in BBC">
+            <img src="/images/plot_Sentiment_Features_Revolut_ Spend, Save, Trade - Negative Features.png" alt="Negative Features in Revolut">
+            <img src="/images/plot_Sentiment_Features_Revolut_ Spend, Save, Trade - Neutral Features.png" alt="Neutral Features in Revolut">
+            <img src="/images/plot_Sentiment_Features_Revolut_ Spend, Save, Trade - Positive Features.png" alt="Positive Features in Revolut">
+            <img src="/images/plot_Topic_Keywords_Miscellaneous in Instagram.png" alt="Miscellaneous in Instagram">
+            <img src="/images/plot_Topic_Keywords_Design and UI in Instagram.png" alt="Design and UI in Instagram">
+            <img src="/images/plot_Topic_Keywords_Feature Requests in Instagram.png" alt="Feature Requests in Instagram">
+            <img src="/images/plot_Topic_Keywords_Performance Issues in Instagram.png" alt="Performance Issues in Instagram">
+            <img src="/images/plot_Topic_Keywords_User Experience in Instagram.png" alt="User Experience in Instagram">
+            <img src="/images/plot_Topic_Keywords_Miscellaneous in Sleep Cycle_ Sleep Tracker.png" alt="Miscellaneous in Sleep Cycle">
+            <img src="/images/plot_Topic_Keywords_Design and UI in Sleep Cycle_ Sleep Tracker.png" alt="Design and UI in Sleep Cycle">
+            <img src="/images/plot_Topic_Keywords_Feature Requests in Sleep Cycle_ Sleep Tracker.png" alt="Feature Requests in Sleep Cycle">
+            <img src="/images/plot_Topic_Keywords_Performance Issues in Sleep Cycle_ Sleep Tracker.png" alt="Performance Issues in Sleep Cycle">
+            <img src="/images/plot_Topic_Keywords_User Experience in Sleep Cycle_ Sleep Tracker.png" alt="User Experience in Sleep Cycle">
+            <img src="/images/plot_Topic_Keywords_Miscellaneous in Bus Times -Live Public Transit.png" alt="Miscellaneous in Bus Times">
+            <img src="/images/plot_Topic_Keywords_Design and UI in Bus Times -Live Public Transit.png" alt="Design and UI in Bus Times">
+            <img src="/images/plot_Topic_Keywords_Feature Requests in Bus Times -Live Public Transit.png" alt="Feature Requests in Bus Times">
+            <img src="/images/plot_Topic_Keywords_Performance Issues in Bus Times -Live Public Transit.png" alt="Performance Issues in Bus Times">
+            <img src="/images/plot_Topic_Keywords_User Experience in Bus Times -Live Public Transit.png" alt="User Experience in Bus Times">
+            <img src="/images/plot_Topic_Keywords_Design and UI in Deliveroo_ Food & Shopping.png" alt="Design and UI in Deliveroo">
+            <img src="/images/plot_Topic_Keywords_Miscellaneous in Deliveroo_ Food & Shopping.png" alt="Miscellaneous in Deliveroo">
+            <img src="/images/plot_Topic_Keywords_Feature Requests in Deliveroo_ Food & Shopping.png" alt="Feature Requests in Deliveroo">
+            <img src="/images/plot_Topic_Keywords_Performance Issues in Deliveroo_ Food & Shopping.png" alt="Performance Issues in Deliveroo">
+            <img src="/images/plot_Topic_Keywords_User Experience in Deliveroo_ Food & Shopping.png" alt="User Experience in Deliveroo">
+            <img src="/images/plot_Topic_Keywords_Miscellaneous in Monzo - Mobile Banking.png" alt="Miscellaneous in Monzo">
+            <img src="/images/plot_Topic_Keywords_Design and UI in Monzo - Mobile Banking.png" alt="Design and UI in Monzo">
+            <img src="/images/plot_Topic_Keywords_Feature Requests in Monzo - Mobile Banking.png" alt="Feature Requests in Monzo">
+            <img src="/images/plot_Topic_Keywords_Performance Issues in Monzo - Mobile Banking.png" alt="Performance Issues in Monzo">
+            <img src="/images/plot_Topic_Keywords_User Experience in Monzo - Mobile Banking.png" alt="User Experience in Monzo">
+            <img src="/images/plot_Topic_Keywords_Miscellaneous in WhatsApp Messenger.png" alt="Miscellaneous in WhatsApp Messenger">
+            <img src="/images/plot_Topic_Keywords_Design and UI in WhatsApp Messenger.png" alt="Design and UI in WhatsApp Messenger">
+            <img src="/images/plot_Topic_Keywords_Feature Requests in WhatsApp Messenger.png" alt="Feature Requests in WhatsApp Messenger">
+            <img src="/images/plot_Topic_Keywords_Performance Issues in WhatsApp Messenger.png" alt="Performance Issues in WhatsApp Messenger">
+            <img src="/images/plot_Topic_Keywords_User Experience in WhatsApp Messenger.png" alt="User Experience in WhatsApp Messenger">
+            <img src="/images/plot_Topic_Keywords_Miscellaneous in Citymapper.png" alt="Miscellaneous in Citymapper">
+            <img src="/images/plot_Topic_Keywords_Design and UI in Citymapper.png" alt="Design and UI in Citymapper">
+            <img src="/images/plot_Topic_Keywords_Feature Requests in Citymapper.png" alt="Feature Requests in Citymapper">
+            <img src="/images/plot_Topic_Keywords_Performance Issues in Citymapper.png" alt="Performance Issues in Citymapper">
+            <img src="/images/plot_Topic_Keywords_User Experience in Citymapper.png" alt="User Experience in Citymapper">
+            <img src="/images/plot_Topic_Keywords_Miscellaneous in Headspace_ Meditation & Sleep.png" alt="Miscellaneous in Headspace">
+            <img src="/images/plot_Topic_Keywords_Design and UI in Headspace_ Meditation & Sleep.png" alt="Design and UI in Headspace">
+            <img src="/images/plot_Topic_Keywords_Feature Requests in Headspace_ Meditation & Sleep.png" alt="Feature Requests in Headspace">
+            <img src="/images/plot_Topic_Keywords_Performance Issues in Headspace_ Meditation & Sleep.png" alt="Performance Issues in Headspace">
+            <img src="/images/plot_Topic_Keywords_User Experience in Headspace_ Meditation & Sleep.png" alt="User Experience in Headspace">
+            <img src="/images/plot_Topic_Keywords_Miscellaneous in BBC_ World News & Stories.png" alt="Miscellaneous in BBC">
+            <img src="/images/plot_Topic_Keywords_Design and UI in BBC_ World News & Stories.png" alt="Design and UI in BBC">
+            <img src="/images/plot_Topic_Keywords_Feature Requests in BBC_ World News & Stories.png" alt="Feature Requests in BBC">
+            <img src="/images/plot_Topic_Keywords_Performance Issues in BBC_ World News & Stories.png" alt="Performance Issues in BBC">
+            <img src="/images/plot_Topic_Keywords_User Experience in BBC_ World News & Stories.png" alt="User Experience in BBC">
+            <img src="/images/plot_Topic_Keywords_Miscellaneous in Revolut_ Spend, Save, Trade.png" alt="Miscellaneous in Revolut">
+            <img src="/images/plot_Topic_Keywords_Design and UI in Revolut_ Spend, Save, Trade.png" alt="Design and UI in Revolut">
+            <img src="/images/plot_Topic_Keywords_Feature Requests in Revolut_ Spend, Save, Trade.png" alt="Feature Requests in Revolut">
+            <img src="/images/plot_Topic_Keywords_Performance Issues in Revolut_ Spend, Save, Trade.png" alt="Performance Issues in Revolut">
+            <img src="/images/plot_Topic_Keywords_User Experience in Revolut_ Spend, Save, Trade.png" alt="User Experience in Revolut">
+        </div>
+    </section>
+
+    <!-- Content for Instagram -->
+    <section id="Instagram" class="tabcontent">
+        <div class="grid-container">
+            <img src="/images/plot_Sentiment_Features_Instagram - Neutral Features.png" alt="Instagram - Neutral Features">
+            <img src="/images/plot_Sentiment_Features_Instagram - Negative Features.png" alt="Instagram - Negative Features">
+            <img src="/images/plot_Sentiment_Features_Instagram - Positive Features.png" alt="Instagram - Positive Features">
+            <img src="/images/plot_Topic_Keywords_Miscellaneous in Instagram.png" alt="Instagram - Miscellaneous">
+            <img src="/images/plot_Topic_Keywords_Design and UI in Instagram.png" alt="Instagram - Design and UI">
+            <img src="/images/plot_Topic_Keywords_Feature Requests in Instagram.png" alt="Instagram - Feature Requests">
+            <img src="/images/plot_Topic_Keywords_Performance Issues in Instagram.png" alt="Instagram - Performance Issues">
+            <img src="/images/plot_Topic_Keywords_User Experience in Instagram.png" alt="Instagram - User Experience">
+        </div>
+    </section>
+
+    <!-- Content for Sleep Cycle -->
+    <section id="SleepCycle" class="tabcontent">
+        <div class="grid-container">
+            <img src="/images/plot_Sentiment_Features_Sleep Cycle_ Sleep Tracker - Neutral Features.png" alt="Sleep Cycle - Neutral Features">
+            <img src="/images/plot_Sentiment_Features_Sleep Cycle_ Sleep Tracker - Negative Features.png" alt="Sleep Cycle - Negative Features">
+            <img src="/images/plot_Sentiment_Features_Sleep Cycle_ Sleep Tracker - Positive Features.png" alt="Sleep Cycle - Positive Features">
+            <img src="/images/plot_Topic_Keywords_Miscellaneous in Sleep Cycle_ Sleep Tracker.png" alt="Sleep Cycle - Miscellaneous">
+            <img src="/images/plot_Topic_Keywords_Design and UI in Sleep Cycle_ Sleep Tracker.png" alt="Sleep Cycle - Design and UI">
+            <img src="/images/plot_Topic_Keywords_Feature Requests in Sleep Cycle_ Sleep Tracker.png" alt="Sleep Cycle - Feature Requests">
+            <img src="/images/plot_Topic_Keywords_Performance Issues in Sleep Cycle_ Sleep Tracker.png" alt="Sleep Cycle - Performance Issues">
+            <img src="/images/plot_Topic_Keywords_User Experience in Sleep Cycle_ Sleep Tracker.png" alt="Sleep Cycle - User Experience">
+        </div>
+    </section>
+
+    <!-- Content for Bus Times -->
+    <section id="BusTimes" class="tabcontent">
+        <div class="grid-container">
+            <img src="/images/plot_Sentiment_Features_Bus Times -Live Public Transit - Neutral Features.png" alt="Bus Times - Neutral Features">
+            <img src="/images/plot_Sentiment_Features_Bus Times -Live Public Transit - Negative Features.png" alt="Bus Times - Negative Features">
+            <img src="/images/plot_Sentiment_Features_Bus Times -Live Public Transit - Positive Features.png" alt="Bus Times - Positive Features">
+            <img src="/images/plot_Topic_Keywords_Miscellaneous in Bus Times -Live Public Transit.png" alt="Bus Times - Miscellaneous">
+            <img src="/images/plot_Topic_Keywords_Design and UI in Bus Times -Live Public Transit.png" alt="Bus Times - Design and UI">
+            <img src="/images/plot_Topic_Keywords_Feature Requests in Bus Times -Live Public Transit.png" alt="Bus Times - Feature Requests">
+            <img src="/images/plot_Topic_Keywords_Performance Issues in Bus Times -Live Public Transit.png" alt="Bus Times - Performance Issues">
+            <img src="/images/plot_Topic_Keywords_User Experience in Bus Times -Live Public Transit.png" alt="Bus Times - User Experience">
+        </div>
+    </section>
+
+    <!-- Content for Deliveroo -->
+    <section id="Deliveroo" class="tabcontent">
+        <div class="grid-container">
+            <img src="/images/plot_Sentiment_Features_Deliveroo_ Food & Shopping - Negative Features.png" alt="Deliveroo - Negative Features">
+            <img src="/images/plot_Sentiment_Features_Deliveroo_ Food & Shopping - Neutral Features.png" alt="Deliveroo - Neutral Features">
+            <img src="/images/plot_Sentiment_Features_Deliveroo_ Food & Shopping - Positive Features.png" alt="Deliveroo - Positive Features">
+            <img src="/images/plot_Topic_Keywords_Design and UI in Deliveroo_ Food & Shopping.png" alt="Deliveroo - Design and UI">
+            <img src="/images/plot_Topic_Keywords_Miscellaneous in Deliveroo_ Food & Shopping.png" alt="Deliveroo - Miscellaneous">
+            <img src="/images/plot_Topic_Keywords_Feature Requests in Deliveroo_ Food & Shopping.png" alt="Deliveroo - Feature Requests">
+            <img src="/images/plot_Topic_Keywords_Performance Issues in Deliveroo_ Food & Shopping.png" alt="Deliveroo - Performance Issues">
+            <img src="/images/plot_Topic_Keywords_User Experience in Deliveroo_ Food & Shopping.png" alt="Deliveroo - User Experience">
+        </div>
+    </section>
+
+    <!-- Content for Monzo -->
+    <section id="Monzo" class="tabcontent">
+        <div class="grid-container">
+            <img src="/images/plot_Sentiment_Features_Monzo - Mobile Banking - Neutral Features.png" alt="Monzo - Neutral Features">
+            <img src="/images/plot_Sentiment_Features_Monzo - Mobile Banking - Negative Features.png" alt="Monzo - Negative Features">
+            <img src="/images/plot_Sentiment_Features_Monzo - Mobile Banking - Positive Features.png" alt="Monzo - Positive Features">
+            <img src="/images/plot_Topic_Keywords_Miscellaneous in Monzo - Mobile Banking.png" alt="Monzo - Miscellaneous">
+            <img src="/images/plot_Topic_Keywords_Design and UI in Monzo - Mobile Banking.png" alt="Monzo - Design and UI">
+            <img src="/images/plot_Topic_Keywords_Feature Requests in Monzo - Mobile Banking.png" alt="Monzo - Feature Requests">
+            <img src="/images/plot_Topic_Keywords_Performance Issues in Monzo - Mobile Banking.png" alt="Monzo - Performance Issues">
+            <img src="/images/plot_Topic_Keywords_User Experience in Monzo - Mobile Banking.png" alt="Monzo - User Experience">
+        </div>
+    </section>
+
+    <!-- Content for WhatsApp -->
+    <section id="WhatsApp" class="tabcontent">
+        <div class="grid-container">
+            <img src="/images/plot_Sentiment_Features_WhatsApp Messenger - Negative Features.png" alt="WhatsApp - Negative Features">
+            <img src="/images/plot_Sentiment_Features_WhatsApp Messenger - Neutral Features.png" alt="WhatsApp - Neutral Features">
+            <img src="/images/plot_Sentiment_Features_WhatsApp Messenger - Positive Features.png" alt="WhatsApp - Positive Features">
+            <img src="/images/plot_Topic_Keywords_Miscellaneous in WhatsApp Messenger.png" alt="WhatsApp - Miscellaneous">
+            <img src="/images/plot_Topic_Keywords_Design and UI in WhatsApp Messenger.png" alt="WhatsApp - Design and UI">
+            <img src="/images/plot_Topic_Keywords_Feature Requests in WhatsApp Messenger.png" alt="WhatsApp - Feature Requests">
+            <img src="/images/plot_Topic_Keywords_Performance Issues in WhatsApp Messenger.png" alt="WhatsApp - Performance Issues">
+            <img src="/images/plot_Topic_Keywords_User Experience in WhatsApp Messenger.png" alt="WhatsApp - User Experience">
+        </div>
+    </section>
+
+    <!-- Content for Citymapper -->
+    <section id="Citymapper" class="tabcontent">
+        <div class="grid-container">
+            <img src="/images/plot_Sentiment_Features_Citymapper - Neutral Features.png" alt="Citymapper - Neutral Features">
+            <img src="/images/plot_Sentiment_Features_Citymapper - Negative Features.png" alt="Citymapper - Negative Features">
+            <img src="/images/plot_Sentiment_Features_Citymapper - Positive Features.png" alt="Citymapper - Positive Features">
+            <img src="/images/plot_Topic_Keywords_Miscellaneous in Citymapper.png" alt="Citymapper - Miscellaneous">
+            <img src="/images/plot_Topic_Keywords_Design and UI in Citymapper.png" alt="Citymapper - Design and UI">
+            <img src="/images/plot_Topic_Keywords_Feature Requests in Citymapper.png" alt="Citymapper - Feature Requests">
+            <img src="/images/plot_Topic_Keywords_Performance Issues in Citymapper.png" alt="Citymapper - Performance Issues">
+            <img src="/images/plot_Topic_Keywords_User Experience in Citymapper.png" alt="Citymapper - User Experience">
+        </div>
+    </section>
+
+    <!-- Content for Headspace -->
+    <section id="Headspace" class="tabcontent">
+        <div class="grid-container">
+            <img src="/images/plot_Sentiment_Features_Headspace_ Meditation & Sleep - Negative Features.png" alt="Headspace - Negative Features">
+            <img src="/images/plot_Sentiment_Features_Headspace_ Meditation & Sleep - Neutral Features.png" alt="Headspace - Neutral Features">
+            <img src="/images/plot_Sentiment_Features_Headspace_ Meditation & Sleep - Positive Features.png" alt="Headspace - Positive Features">
+            <img src="/images/plot_Topic_Keywords_Miscellaneous in Headspace_ Meditation & Sleep.png" alt="Headspace - Miscellaneous">
+            <img src="/images/plot_Topic_Keywords_Design and UI in Headspace_ Meditation & Sleep.png" alt="Headspace - Design and UI">
+            <img src="/images/plot_Topic_Keywords_Feature Requests in Headspace_ Meditation & Sleep.png" alt="Headspace - Feature Requests">
+            <img src="/images/plot_Topic_Keywords_Performance Issues in Headspace_ Meditation & Sleep.png" alt="Headspace - Performance Issues">
+            <img src="/images/plot_Topic_Keywords_User Experience in Headspace_ Meditation & Sleep.png" alt="Headspace - User Experience">
+        </div>
+    </section>
+
+    <!-- Content for BBC -->
+    <section id="BBC" class="tabcontent">
+        <div class="grid-container">
+            <img src="/images/plot_Sentiment_Features_BBC_ World News & Stories - Negative Features.png" alt="BBC - Negative Features">
+            <img src="/images/plot_Sentiment_Features_BBC_ World News & Stories - Neutral Features.png" alt="BBC - Neutral Features">
+            <img src="/images/plot_Sentiment_Features_BBC_ World News & Stories - Positive Features.png" alt="BBC - Positive Features">
+            <img src="/images/plot_Topic_Keywords_Miscellaneous in BBC_ World News & Stories.png" alt="BBC - Miscellaneous">
+            <img src="/images/plot_Topic_Keywords_Design and UI in BBC_ World News & Stories.png" alt="BBC - Design and UI">
+            <img src="/images/plot_Topic_Keywords_Feature Requests in BBC_ World News & Stories.png" alt="BBC - Feature Requests">
+            <img src="/images/plot_Topic_Keywords_Performance Issues in BBC_ World News & Stories.png" alt="BBC - Performance Issues">
+            <img src="/images/plot_Topic_Keywords_User Experience in BBC_ World News & Stories.png" alt="BBC - User Experience">
+        </div>
+    </section>
+
+    <!-- Content for Revolut -->
+    <section id="Revolut" class="tabcontent">
+        <div class="grid-container">
+            <img src="/images/plot_Sentiment_Features_Revolut_ Spend, Save, Trade - Negative Features.png" alt="Revolut - Negative Features">
+            <img src="/images/plot_Sentiment_Features_Revolut_ Spend, Save, Trade - Neutral Features.png" alt="Revolut - Neutral Features">
+            <img src="/images/plot_Sentiment_Features_Revolut_ Spend, Save, Trade - Positive Features.png" alt="Revolut - Positive Features">
+            <img src="/images/plot_Topic_Keywords_Miscellaneous in Revolut_ Spend, Save, Trade.png" alt="Revolut - Miscellaneous">
+            <img src="/images/plot_Topic_Keywords_Design and UI in Revolut_ Spend, Save, Trade.png" alt="Revolut - Design and UI">
+            <img src="/images/plot_Topic_Keywords_Feature Requests in Revolut_ Spend, Save, Trade.png" alt="Revolut - Feature Requests">
+            <img src="/images/plot_Topic_Keywords_Performance Issues in Revolut_ Spend, Save, Trade.png" alt="Revolut - Performance Issues">
+            <img src="/images/plot_Topic_Keywords_User Experience in Revolut_ Spend, Save, Trade.png" alt="Revolut - User Experience">
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Sentiment Analysis Dashboard. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function openApp(evt, appName) {
+            // Hide all tab contents
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+            // Remove the active class from all tab links
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+
+            // Show the selected tab content and add the active class to the clicked tab link
+            document.getElementById(appName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        // Show the 'All' tab by default
+        document.getElementById("All").style.display = "block";
+        document.querySelector(".tablinks").classList.add("active");
+    </script>
+</body>
+</html>
